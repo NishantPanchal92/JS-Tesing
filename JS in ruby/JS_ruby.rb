@@ -23,8 +23,8 @@ request=Net::HTTP::Get.new(uri.request_uri)
 request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi")
 response=http.request(request)
 #puts response.code
-#puts response.body
-parsedJson= JSON.parse(response.body)
+puts response.body
+#parsedJson= JSON.parse(response.body)
 
 #To fetch the json data
 # data=parsedJson["Windows"]["8.1"]
@@ -61,6 +61,13 @@ puts response.body
 #Get API status
 uri=URI.parse("http://api.browserstack.com/3/status")
 request=Net::HTTP::Get.new(uri.request_uri)
+request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi")
+response=http.request(request)
+puts response.body
+
+#Delete worker 
+uri=URI.parse("http://api.browserstack.com/3/worker/14081095")
+request=Net::HTTP::Delete.new(uri.request_uri)
 request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi")
 response=http.request(request)
 puts response.body
