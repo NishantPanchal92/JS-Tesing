@@ -12,7 +12,7 @@ uri= URI.parse("http://api.browserstack.com/3")
 http = Net::HTTP.new(uri.host, uri.port)
 
 request = Net::HTTP::Get.new(uri.request_uri)
-request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi") 
+request.basic_auth("<USER_NAME>","<AUTOMATE_KEY>") 
 response=http.request(request)
 puts response.code
 #puts response.body
@@ -20,7 +20,7 @@ puts response.code
 #List of browsers
 uri=URI.parse("http://api.browserstack.com/3/browsers")
 request=Net::HTTP::Get.new(uri.request_uri)
-request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi")
+request.basic_auth("<USER_NAME>","<AUTOMATE_KEY>") 
 response=http.request(request)
 #puts response.code
 puts response.body
@@ -36,7 +36,7 @@ puts response.body
 uri=URI.parse("http://api.browserstack.com/3/worker")
 request=Net::HTTP::Post.new(uri.request_uri)
 request.initialize_http_header({"Content-Type" => "application/json", "Accept" => "application/json"})
-request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi")
+request.basic_auth("<USER_NAME>","<AUTOMATE_KEY>") 
 request.set_form_data("os" => "Windows", "os_version" => "7", "browser_version" => "8.0", "browser" => "ie", "url" => "http://google.com")
 response=http.request(request)
 #puts response.code
@@ -47,27 +47,27 @@ puts "http://api.browserstack.com/3/worker/#{jobId}"
 #Get job status
 uri=URI.parse("http://api.browserstack.com/3/worker/#{jobId}")
 request=Net::HTTP::Get.new(uri.request_uri)
-request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi")
+request.basic_auth("<USER_NAME>","<AUTOMATE_KEY>") 
 response=http.request(request)
 puts response.body
 
 #Get all the workers
 uri=URI.parse("http://api.browserstack.com/3/workers")
 request=Net::HTTP::Get.new(uri.request_uri)
-request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi")
+request.basic_auth("<USER_NAME>","<AUTOMATE_KEY>") 
 response=http.request(request)
 puts response.body
 
 #Get API status
 uri=URI.parse("http://api.browserstack.com/3/status")
 request=Net::HTTP::Get.new(uri.request_uri)
-request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi")
+request.basic_auth("<USER_NAME>","<AUTOMATE_KEY>") 
 response=http.request(request)
 puts response.body
 
 #Delete worker 
-uri=URI.parse("http://api.browserstack.com/3/worker/14081095")
+uri=URI.parse("http://api.browserstack.com/3/worker/#{jobId}")
 request=Net::HTTP::Delete.new(uri.request_uri)
-request.basic_auth("nishant57","S7ZUamAuUp24pPLhDYsi")
+request.basic_auth("<USER_NAME>","<AUTOMATE_KEY>") 
 response=http.request(request)
 puts response.body
