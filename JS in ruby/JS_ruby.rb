@@ -1,11 +1,11 @@
-#JS tesing via ruby
+# # JS tesing via ruby ##
 require 'rubygems'
 require 'json'
 require 'net/http'
 require 'uri'
 require 'pp'
 
-#General authentication
+## General authentication ##
 uri= URI.parse("http://api.browserstack.com/3")
 #response=Net::HTTP.get_response(uri)
 #Net::HTTP.get_print(uri)
@@ -15,9 +15,8 @@ request = Net::HTTP::Get.new(uri.request_uri)
 request.basic_auth("USERNAME","AUTOMATE_KEY") 
 response=http.request(request)
 puts response.code
-#puts response.body
 
-#List of browsers
+## List of browsers ##
 uri=URI.parse("http://api.browserstack.com/3/browsers")
 request=Net::HTTP::Get.new(uri.request_uri)
 request.basic_auth("USERNAME","AUTOMATE_KEY") 
